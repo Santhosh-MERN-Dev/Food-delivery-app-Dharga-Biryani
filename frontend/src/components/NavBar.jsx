@@ -45,7 +45,7 @@ const NavBar = () => {
     <>
       <nav
         ref={navRef}
-        className={`navbar navbar-expand-lg sticky-top navbar-animated${scrolled ? " navbar-scrolled" : ""}`}
+        className={`navbar navbar-expand-lg sticky-top navbar-animated ${scrolled ? " navbar-scrolled" : ""}`}
       >
         <div className="navbar-container container-fluid d-flex">
           {/* Brand */}
