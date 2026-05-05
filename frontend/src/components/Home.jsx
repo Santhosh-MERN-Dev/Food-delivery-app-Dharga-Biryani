@@ -8,6 +8,10 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import AOS from "aos";
+import mutton from "../assets/img/mutton-biryani-in-pressure-cooker-easy-tasty-mutton-biryani-recipe-mutton-biryani.jpg"
+import chicken from "../assets/img/7310050-biryani-picture.jpg"
+import muttonbiryani from "../assets/img/7311481-mutton-biryani-in-pressure-cooker-steffis-recipes.jpg"
+import pannerrice from "../assets/img/A plate of vegetarian biryani, bursting with flavor and color.jpg"
 
 const Home = () => {
   useEffect(() => {
@@ -211,7 +215,7 @@ const Home = () => {
             </div>
             <div className="special-card">
               <div className="special-image">
-                <img src="./src/assets//img/mutton-biryani-in-pressure-cooker-easy-tasty-mutton-biryani-recipe-mutton-biryani.jpg" alt="Special Mutton Biryani" />
+                <img src={mutton} alt="Special Mutton Biryani" />
                 <div className="special-overlay">
                   <span className="limited-tag">⏳ Limited Time</span>
                 </div>
@@ -318,7 +322,7 @@ const Home = () => {
             <div className="dish-card" data-aos="fade-up" data-aos-delay="0">
               <div className="dish-image">
                 <img
-                  src="./src/assets/img/7310050-biryani-picture.jpg"
+                  src={chicken}
                   alt="Chicken Biryani"
                 />
                 <div className="dish-badge">⭐ Bestseller</div>
@@ -338,7 +342,7 @@ const Home = () => {
             <div className="dish-card" data-aos="fade-up" data-aos-delay="200">
               <div className="dish-image">
                 <img
-                  src="./src/assets/img/7311481-mutton-biryani-in-pressure-cooker-steffis-recipes.jpg"
+                  src={muttonbiryani}
                   alt="Mutton Biryani"
                 />
                 <div className="dish-badge chef-badge">👨‍🍳 Chef's Pick</div>
@@ -357,7 +361,7 @@ const Home = () => {
 
             <div className="dish-card" data-aos="fade-up" data-aos-delay="400">
               <div className="dish-image">
-                <img src="./src/assets/img/A plate of vegetarian biryani, bursting with flavor and color.jpg" alt="Veg Biryani" />
+                <img src={pannerrice} alt="Veg Biryani" />
                 <div className="dish-badge veg-badge">🌿 Veg</div>
               </div>
               <div className="dish-content">

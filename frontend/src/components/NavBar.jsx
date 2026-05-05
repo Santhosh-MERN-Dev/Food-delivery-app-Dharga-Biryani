@@ -11,6 +11,7 @@ import { useEffect, useState, useRef } from "react";
 import { BsBagHeartFill } from "react-icons/bs";
 import { RiAdminFill } from "react-icons/ri";
 import { useCart } from "../context/CartContext";
+import moon from "../assets/img/moon_740878.png"
 
 const NavBar = () => {
   const location = useLocation();
@@ -51,7 +52,7 @@ const NavBar = () => {
           <div className="nav-brand d-flex align-items-center gap-1">
             <Nav.Link as={Link} to="/">
               <img
-                src="./src/assets/img/moon_740878.png"
+                src={moon}
                 alt="Moon"
                 width={50}
                 className="moon-logo"
