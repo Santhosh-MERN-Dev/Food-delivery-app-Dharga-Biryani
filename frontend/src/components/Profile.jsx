@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import AOS from "aos";
 import { FaUserEdit, FaSignOutAlt, FaEnvelope, FaShieldAlt, FaSave, FaTimes } from "react-icons/fa";
 import API_URL from "../config/api";
 
@@ -14,14 +13,6 @@ const Profile = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    AOS.init({ duration: 800, once: false });
-  }, []);
-
-  // Re-trigger AOS animations when switching between view/edit modes
-  useEffect(() => {
-    AOS.refresh();
-  }, [edit]);
 
   // Get User Profile
   const token = localStorage.getItem("token");
@@ -103,7 +94,7 @@ const Profile = () => {
   if (!token) {
     return (
       <div className="profile-no-auth">
-        <div className="profile-no-auth-card" data-aos="zoom-in">
+        <div className="profile-no-auth-card">
           <div className="no-auth-icon">🔐</div>
           <h2>Please login to view Profile</h2>
           <p>You need to be logged in to access your account settings</p>
@@ -126,7 +117,7 @@ const Profile = () => {
           <span className="profile-deco-circle profile-deco-3"></span>
         </div>
 
-        <div className="profile-wrapper" data-aos="fade-up">
+        <div className="profile-wrapper">
           {/* Header */}
           <div className="profile-header">
             <div className="profile-header-line"></div>
@@ -136,7 +127,7 @@ const Profile = () => {
 
           {edit ? (
             /* ── Edit Mode ── */
-            <div className="profile-card profile-edit-card" data-aos="fade-up">
+            <div className="profile-card profile-edit-card">
               <div className="profile-edit-badge">
                 <FaUserEdit /> Editing
               </div>
@@ -182,7 +173,7 @@ const Profile = () => {
             </div>
           ) : (
             /* ── View Mode ── */
-            <div className="profile-card" data-aos="zoom-in">
+            <div className="profile-card">
               {user ? (
                 <>
                   <div className="avatar-section">
