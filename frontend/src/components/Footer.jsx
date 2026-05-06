@@ -2,6 +2,7 @@ import { FaInstagram, FaFacebook, FaTwitter, FaPhone, FaMapLocationDot, FaClock 
 import { MdEmail } from "react-icons/md";
 import AOS from "aos";
 import { useEffect } from "react";
+import dhargabiryanilogo from "../assets/img/DhargaBiriyani logo.png"
 
 const Footer = () => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const Footer = () => {
             <div className="col-lg-3 col-md-6" data-aos="fade-up">
               <div className="footer-section">
                 <img
-                  src="./src/assets/img/DhargaBiriyani logo.png"
+                  src={dhargabiryanilogo}
                   alt="Dharga Biryani Logo"
                   className="footer-logo"
                 />

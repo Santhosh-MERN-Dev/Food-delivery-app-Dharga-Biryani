@@ -47,7 +47,7 @@ const Home = () => {
   const stats = [
     { value: "1000+", label: "Orders Delivered", icon: <FaTruck className="stat-icon" /> },
     { value: "50+", label: "Dish Varieties", icon: <GiChickenOven className="stat-icon" /> },
-    { value: "4.8", label: "Customer Rating", icon: <FaAward className="stat-icon" /> },
+    { value: "4.9", label: "Customer Rating", icon: <FaAward className="stat-icon" /> },
     { value: "30", label: "Min Delivery", icon: <IoRocket className="stat-icon" /> },
   ];
 
@@ -74,7 +74,7 @@ const Home = () => {
           {/* Small tag above title */}
           <div className="hero-tag" data-aos="fade-down" data-aos-delay="0">
             <span className="hero-tag-dot"></span>
-            <span>EST. 2020 &bull; AUTHENTIC BIRYANI</span>
+            <span>EST.  &bull; AUTHENTIC BIRYANI</span>
           </div>
 
           <h1
@@ -85,7 +85,7 @@ const Home = () => {
             Authentic Taste of{" "}
             <span
               className="text-warning gradient-text"
-              style={{ textShadow: " 2px 4px black" }}
+              style={{ textShadow: " 2px 4px gold" }}
             >
               Dharga Biryani
             </span>

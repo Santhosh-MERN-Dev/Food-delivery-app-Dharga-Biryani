@@ -220,14 +220,25 @@
 }
 
 
-/* ── Mobile collapse ── */
+/* ── Mobile collapse with smooth animation ── */
 @media (max-width: 991px) {
-  .navbar-collapse {
+  .navbar-collapse.collapse {
+    display: block !important;
     background: #222;
     border-radius: 10px;
     margin-top: 0.5rem;
-    padding: 0.75rem;
+    padding: 0;
     border: 1px solid rgba(245, 197, 24, 0.15);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 400ms ease-in-out, opacity 400ms ease-in-out, padding 400ms ease-in-out;
+  }
+
+  .navbar-collapse.collapse.show {
+    max-height: 500px;
+    opacity: 1;
+    padding: 0.75rem;
   }
 
   .nav-link1 {
@@ -2180,7 +2191,6 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
