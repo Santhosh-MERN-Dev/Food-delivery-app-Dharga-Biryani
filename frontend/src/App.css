@@ -290,11 +290,11 @@
   stroke-dasharray: 12 63;
 }
 
-.hamburger input:checked+svg {
+.hamburger.active svg {
   transform: rotate(-45deg);
 }
 
-.hamburger input:checked+svg .line-top-bottom {
+.hamburger.active svg .line-top-bottom {
   stroke-dasharray: 20 300;
   stroke-dashoffset: -32.42;
 }

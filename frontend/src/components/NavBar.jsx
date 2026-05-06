@@ -20,6 +20,7 @@ const NavBar = () => {
 
   const [role, setRole] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Scroll shrink effect
   useEffect(() => {
@@ -37,6 +38,13 @@ const NavBar = () => {
       })();
     }
   }, []);
+
+  // Close menu on route change
+  useEffect(() => {
+    (async()=> {
+      setMenuOpen(false);
+    })();
+  }, [location.pathname]);
 
   const isActive = (path) =>
     location.pathname === path ? "nav-link1 active-link" : "nav-link1";
@@ -63,28 +71,26 @@ const NavBar = () => {
             </Nav.Link>
           </div>
 
-          {/* Hamburger */}
-          <label
-            className="hamburger navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <input type="checkbox" />
-            <svg viewBox="0 0 32 32">
-              <path
-                className="line line-top-bottom"
-                d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-              />
-              <path className="line" d="M7 16 27 16" />
-            </svg>
-          </label>
+           {/* Hamburger */}
+           <label
+             className={`hamburger navbar-toggler ${menuOpen ? "active" : ""}`}
+             onClick={() => setMenuOpen(!menuOpen)}
+             aria-controls="navbarSupportedContent"
+             aria-expanded={menuOpen}
+             aria-label="Toggle navigation"
+             style={{ cursor: "pointer" }}
+           >
+             <svg viewBox="0 0 32 32">
+               <path
+                 className="line line-top-bottom"
+                 d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+               />
+               <path className="line" d="M7 16 27 16" />
+             </svg>
+           </label>
 
-          {/* Links */}
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+           {/* Links */}
+           <div className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`} id="navbarSupportedContent">
             <Nav
               className="ms-auto d-flex flex-row gap-1 align-items-center my-2 my-lg-0"
               navbarScroll
