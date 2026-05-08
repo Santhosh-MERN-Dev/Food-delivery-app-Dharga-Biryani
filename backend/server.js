@@ -1,21 +1,21 @@
 require('dotenv').config();
 const express = require('express');
-// const mongoose = require('mongoose'); 
-const cors = require('cors')
+const cors = require('cors');
 
 const app = express();
 
-const productRoutes = require('./routes/productRoutes')
-const orderRoutes = require('./routes/orderRoutes')
-const userRoutes = require('./routes/userRoutes')
-const cartRoutes = require('./routes/cartRoutes')
+const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const userRoutes = require('./routes/userRoutes');
+const cartRoutes = require('./routes/cartRoutes');
+
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+
+app.use(express.json({ limit: '10mb' }));
+app.use(cors({ origin: CLIENT_URL }));
 
 
-app.use(express.json({limit: "10mb"}));
-app.use(cors());
-
-
-//Product Routes
+// Product Routes
 app.use('/products', productRoutes)
 
 //auth User Routes
@@ -30,5 +30,5 @@ app.use('/orders', orderRoutes)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server listening to ${PORT}`);
+    console.log(`Server listening on port ${PORT}`);
 });

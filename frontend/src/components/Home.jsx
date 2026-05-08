@@ -74,7 +74,7 @@ const Home = () => {
           {/* Small tag above title */}
           <div className="hero-tag" data-aos="fade-down" data-aos-delay="0">
             <span className="hero-tag-dot"></span>
-            <span>EST.  &bull; AUTHENTIC BIRYANI</span>
+            <span>EST. 1998 &bull; AUTHENTIC BIRYANI</span>
           </div>
 
           <h1

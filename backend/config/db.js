@@ -3,27 +3,31 @@ const mongoose = require('mongoose');
 
 const mongoURI = process.env.MONGO_URI;
 
+if (!process.env.MONGO_URI) {
+    console.warn('Warning: MONGO_URI is not set. Falling back to localhost.');
+}
+
 // User Database
 const userDB = mongoose.createConnection(`${mongoURI}/user`)
-userDB.on('connected', ()=> {
+userDB.on('connected', () => {
     console.log('user DB Connected')
 })
-userDB.on('error', (error)=> {
+userDB.on('error', (error) => {
     console.log(error)
 })
 
 //Products Database
 const productDB = mongoose.createConnection(`${mongoURI}/products`)
-productDB.on('connected', ()=> {
+productDB.on('connected', () => {
     console.log('product DB Connected')
 })
-productDB.on('error', (error)=> {
+productDB.on('error', (error) => {
     console.log(error)
 })
 
 //orders Database
 const orderDB = mongoose.createConnection(`${mongoURI}/orders`)
-orderDB.on('connected', ()=> {
+orderDB.on('connected', () => {
     console.log('order DB Connected')
 })
 orderDB.on('error', (error) => {
@@ -32,7 +36,7 @@ orderDB.on('error', (error) => {
 
 //cart Database
 const cartDB = mongoose.createConnection(`${mongoURI}/cartdb`)
-cartDB.on('connected', ()=> {
+cartDB.on('connected', () => {
     console.log('Cart DB Connected')
 })
 cartDB.on('error', (error) => {
@@ -40,4 +44,4 @@ cartDB.on('error', (error) => {
 })
 
 
-module.exports = {userDB, productDB, orderDB, cartDB}
+module.exports = { userDB, productDB, orderDB, cartDB }
