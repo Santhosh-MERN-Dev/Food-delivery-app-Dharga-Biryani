@@ -9,7 +9,7 @@ const orderRoutes = require('./routes/orderRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 
-const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+const CLIENT_URL = process.env.CLIENT_URL;
 
 app.use(express.json({ limit: '10mb' }));
 app.use(cors({ origin: CLIENT_URL }));
