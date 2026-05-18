@@ -5,10 +5,14 @@ import toast, { Toaster } from "react-hot-toast";
 import AOS from "aos";
 import { FiSearch } from "react-icons/fi";
 import { GiChickenLeg, GiCookingPot } from "react-icons/gi";
-import { FaLeaf, FaDrumstickBite, FaShoppingCart, FaBolt } from "react-icons/fa";
+import {
+  FaLeaf,
+  FaDrumstickBite,
+  FaShoppingCart,
+  FaBolt,
+} from "react-icons/fa";
 import { useCart } from "../context/CartContext";
-
-const API_URL = import.meta.env.VITE_API_URL;
+import API_URL from "../config/api";
 
 const ProductMenu = () => {
   const [products, setProducts] = useState([]);
@@ -51,9 +55,7 @@ const ProductMenu = () => {
     setSearch(value);
 
     try {
-      const res = await fetch(
-        `${API_URL}/products/search?q=${value}`,
-      );
+      const res = await fetch(`${API_URL}/products/search?q=${value}`);
       const data = await res.json();
       setProducts(data);
     } catch (err) {
@@ -110,8 +112,11 @@ const ProductMenu = () => {
 
   const filteredProducts = products.filter((item) => {
     if (activeFilter === "all") return true;
-    if (activeFilter === "veg") return item.name && item.name.toLowerCase().includes("veg");
-    return activeFilter === "nonveg" ? (item.name && !item.name.toLowerCase().includes("veg")) : true;
+    if (activeFilter === "veg")
+      return item.name && item.name.toLowerCase().includes("veg");
+    return activeFilter === "nonveg"
+      ? item.name && !item.name.toLowerCase().includes("veg")
+      : true;
   });
 
   if (isLoading) {
@@ -138,13 +143,19 @@ const ProductMenu = () => {
       <section className="menu-header">
         <div className="menu-header-content" data-aos="fade-down">
           <h2 className="menu-title">Our Menu</h2>
-          <p className="menu-subtitle">Explore our authentic biryani collection</p>
+          <p className="menu-subtitle">
+            Explore our authentic biryani collection
+          </p>
           <div className="menu-title-line"></div>
         </div>
       </section>
 
       {/* Search & Filter Bar */}
-      <section className="menu-controls" data-aos="fade-up" data-aos-delay="200">
+      <section
+        className="menu-controls"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         <div className="menu-controls-inner">
           {/* Search Bar */}
           <div className="menu-search-wrapper">
@@ -221,7 +232,9 @@ const ProductMenu = () => {
                   {item.name && item.name.toLowerCase().includes("veg") ? (
                     <span className="menu-card-type veg-type">🌿 Veg</span>
                   ) : (
-                    <span className="menu-card-type nonveg-type">🍗 Non-Veg</span>
+                    <span className="menu-card-type nonveg-type">
+                      🍗 Non-Veg
+                    </span>
                   )}
                 </div>
 
@@ -231,10 +244,14 @@ const ProductMenu = () => {
 
                   {/* Pricing */}
                   <div className="menu-card-pricing">
-                    <span className="menu-card-original">₹{item.actualPrice}</span>
+                    <span className="menu-card-original">
+                      ₹{item.actualPrice}
+                    </span>
                     <span className="menu-card-price">₹{item.price}</span>
                     {discount > 0 && (
-                      <span className="menu-card-save">Save ₹{item.actualPrice - item.price}</span>
+                      <span className="menu-card-save">
+                        Save ₹{item.actualPrice - item.price}
+                      </span>
                     )}
                   </div>
 

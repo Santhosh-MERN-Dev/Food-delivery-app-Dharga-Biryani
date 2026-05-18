@@ -9,9 +9,12 @@ const orderRoutes = require('./routes/orderRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 
-const CLIENT_URL = process.env.CLIENT_URL;
+const CLIENT_URL = process.env.CLIENT_URL?.replace(/\/$/, "");
 
 app.use(express.json({ limit: '10mb' }));
+if (!CLIENT_URL) {
+    console.warn("Warning: CLIENT_URL is not set. CORS may block frontend requests.");
+}
 app.use(cors({ origin: CLIENT_URL }));
 
 
