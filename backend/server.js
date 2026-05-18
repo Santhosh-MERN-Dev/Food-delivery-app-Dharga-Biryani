@@ -9,10 +9,9 @@ const orderRoutes = require('./routes/orderRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 
-const CLIENT_URL = process.env.CLIENT_URL;
 
 app.use(express.json({ limit: '10mb' }));
-app.use(cors({ origin: CLIENT_URL }));
+app.use(cors({ origin: "https://food-delivery-app-dharga-biryani.onrender.com", credentials: true }));
 
 
 // Product Routes
