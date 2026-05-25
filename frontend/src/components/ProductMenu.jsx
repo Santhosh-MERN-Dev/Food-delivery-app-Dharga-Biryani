@@ -21,10 +21,7 @@ const ProductMenu = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      once: true,
-      offset: 60,
-      disable: window.innerWidth < 481,
+      duration: 1000,
     });
   }, []);
 
@@ -208,7 +205,7 @@ const ProductMenu = () => {
               key={item._id || index}
               className="menu-card-wrapper"
               data-aos="zoom-in"
-              data-aos-delay={Math.min(index, 5) * 80}
+              data-aos-delay={(index % 4) * 100}
             >
               <div className="card">
                 {/* Image with overlay badges */}
