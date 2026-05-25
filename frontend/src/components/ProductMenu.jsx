@@ -8,8 +8,6 @@ import { GiChickenLeg, GiCookingPot } from "react-icons/gi";
 import { FaLeaf, FaDrumstickBite, FaShoppingCart, FaBolt } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 const ProductMenu = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
@@ -21,15 +19,12 @@ const ProductMenu = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      once: true,
-      offset: 60,
-      disable: window.innerWidth < 481,
+      duration: 1000,
     });
   }, []);
 
   useEffect(() => {
-    fetch(`${API_URL}/products`, { method: "GET" })
+    fetch("http://localhost:3000/products", { method: "GET" })
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -55,7 +50,7 @@ const ProductMenu = () => {
 
     try {
       const res = await fetch(
-        `${API_URL}/products/search?q=${value}`,
+        `http://localhost:3000/products/search?q=${value}`,
       );
       const data = await res.json();
       setProducts(data);
@@ -85,7 +80,7 @@ const ProductMenu = () => {
     }
 
     try {
-      const res = await fetch(`${API_URL}/cart/add`, {
+      const res = await fetch("http://localhost:3000/cart/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -208,7 +203,7 @@ const ProductMenu = () => {
               key={item._id || index}
               className="menu-card-wrapper"
               data-aos="zoom-in"
-              data-aos-delay={Math.min(index, 5) * 80}
+              data-aos-delay={(index % 4) * 100}
             >
               <div className="card">
                 {/* Image with overlay badges */}
