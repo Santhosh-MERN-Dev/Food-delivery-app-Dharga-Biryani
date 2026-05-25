@@ -5,6 +5,7 @@ body,
   min-height: 200vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 /* ========== MENU PAGE - Dark/Gold Theme ========== */
@@ -464,38 +465,128 @@ body,
 /* --- Responsive --- */
 @media (max-width: 480px) {
   .products-menu {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 12px;
   }
 
   .menu-header {
-    padding: 35px 15px 30px;
+    padding: 30px 12px 24px;
   }
 
   .menu-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
+  }
+
+  .menu-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .menu-controls {
+    padding: 14px 12px 6px;
   }
 
   .menu-controls-inner {
     flex-direction: column;
+    gap: 10px;
   }
 
   .menu-search-wrapper {
     max-width: 100%;
+    flex: 1 1 100%;
   }
 
   .menu-filter-tabs {
     width: 100%;
     justify-content: center;
+    gap: 6px;
+  }
+
+  .menu-filter-btn {
+    padding: 7px 14px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+
+  .menu-card-image {
+    height: 120px;
+  }
+
+  .card-img-top {
+    height: 120px;
+  }
+
+  .card-body {
+    padding: 12px;
+    gap: 4px;
+    min-height: auto;
+  }
+
+  .card-title {
+    font-size: 0.9rem;
+  }
+
+  .card-text {
+    font-size: 0.75rem;
+    -webkit-line-clamp: 1;
+    margin-bottom: 2px;
+  }
+
+  .menu-card-pricing {
+    gap: 4px;
+    margin: 2px 0;
+  }
+
+  .menu-card-original {
+    font-size: 0.7rem;
+  }
+
+  .menu-card-price {
+    font-size: 1rem;
+  }
+
+  .menu-card-save {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+  }
+
+  .menu-card-discount {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    top: 6px;
+    left: 6px;
+  }
+
+  .menu-card-type {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    top: 6px;
+    right: 6px;
   }
 
   .menu-card-actions {
     flex-direction: column;
+    gap: 5px;
+    margin-top: 4px;
   }
 
   .card .btn {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    gap: 4px;
     width: 100%;
+  }
+
+  .btn-icon {
+    font-size: 0.7rem;
+  }
+
+  .menu-card-image::after {
+    height: 40px;
+  }
+
+  .card {
+    border-radius: 12px;
   }
 }
 
@@ -504,6 +595,14 @@ body,
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     padding: 16px;
+  }
+
+  .menu-card-image {
+    height: 160px;
+  }
+
+  .card-img-top {
+    height: 160px;
   }
 }
 

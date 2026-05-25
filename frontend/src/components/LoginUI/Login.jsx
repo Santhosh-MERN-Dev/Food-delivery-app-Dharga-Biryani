@@ -5,6 +5,7 @@ import "../LoginUI/style.css";
 import AOS from "aos";
 import { GoEyeClosed } from "react-icons/go";
 import { RxEyeOpen } from "react-icons/rx";
+import { FiUser, FiMail, FiLock } from "react-icons/fi";
 import API_URL from "../../config/api";
 
 const Login = () => {
@@ -19,19 +20,15 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-      AOS.init({
-        duration: 1000,
-      });
-    }, []);
+    AOS.init({ duration: 1000 });
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     const res = await fetch(`${API_URL}/auth/login`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
     const data = await res.json();
@@ -44,7 +41,7 @@ const Login = () => {
       navigate("/profile");
       window.location.reload();
     } else {
-      toast.error(data.message || "Password Wrong❌");
+      toast.error(data.message || "Password Wrong");
     }
   };
 
@@ -59,9 +56,7 @@ const Login = () => {
     try {
       const res = await fetch(`${API_URL}/auth/register`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email: remail, password: rpassword }),
       });
 
@@ -86,73 +81,55 @@ const Login = () => {
     <>
       <Toaster />
       <div className="login-ui">
-        <div className={isRegister ? "container active" : "container"}>
-          <div className="curved-shape"></div>
-          <div className="curved-shape2"></div>
+        <div className={`login-container${isRegister ? " active" : ""}`}>
+          <div className="login-overlay"></div>
+
+          {/* Login Form */}
           <div className="form-box Login" data-aos="zoom-in">
-            <h2 className="animation" style={{ "--D": 0, "--S": 21 }}>
-              Login
-            </h2>
+            <h2>Login</h2>
+            <p className="form-subtitle">Welcome back! Sign in to continue.</p>
             <form>
-              <div
-                className="input-box animation"
-                style={{ "--D": 1, "--S": 22 }}
-              >
+              <div className="input-box">
                 <input
                   type="email"
                   required
+                  placeholder=" "
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
+                <FiUser className="input-icon" />
                 <label>Email</label>
-                <box-icon type="solid" name="user" color="gray"></box-icon>
               </div>
 
-              <div
-                className="input-box animation"
-                style={{ "--D": 2, "--S": 23 }}
-              >
+              <div className="input-box">
                 <input
                   type={show ? "text" : "password"}
                   required
+                  placeholder=" "
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                <FiLock className="input-icon" />
                 <label>Password</label>
-                <span
+                <button
+                  type="button"
+                  className="password-toggle"
                   onClick={() => setShow(!show)}
-                  style={{
-                    position: "absolute",
-                    right: "2px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    cursor: "pointer",
-                    fontSize: "18px",
-                  }}
+                  tabIndex={-1}
                 >
                   {show ? <GoEyeClosed /> : <RxEyeOpen />}
-                </span>
-                <box-icon name="lock-alt" type="solid" color="gray"></box-icon>
-              </div>
-
-              <div
-                className="input-box animation"
-                style={{ "--D": 3, "--S": 24 }}
-              >
-                <button type="button" className="btn1" onClick={handleLogin}>
-                  Login
                 </button>
               </div>
 
-              <div
-                className="regi-link animation"
-                style={{ "--D": 4, "--S": 25 }}
-              >
+              <button type="button" className="login-btn" onClick={handleLogin}>
+                Login
+              </button>
+
+              <div className="toggle-link">
                 <p>
-                  Don't have an account? <br />
+                  Don't have an account?{" "}
                   <a
                     href="#"
-                    className="SignUpLink"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsRegister(true);
@@ -165,93 +142,72 @@ const Login = () => {
             </form>
           </div>
 
+          {/* Login Info */}
           <div className="info-content Login">
-            <h2 className="animation" style={{ "--D": 0, "--S": 20 }}>
-              WELCOME BACK!
-            </h2>
-            <p className="animation" style={{ "--D": 1, "--S": 21 }}>
-              We are happy to have you with us again. Your biryani Journey Starts Here! join us today and never miss the flavor of Dharga.
+            <h2>WELCOME <span className="gold-text">BACK!</span></h2>
+            <p>
+              We are happy to have you with us again. Your biryani journey starts here — join us today and never miss the flavor of <span className="brand-highlight">Dharga</span>.
             </p>
           </div>
 
-          <div className="form-box Register" >
-            <h2 className="animation" style={{ "--li": 17, "--S": 0 }}>
-              Register
-            </h2>
+          {/* Register Form */}
+          <div className="form-box Register">
+            <h2>Register</h2>
+            <p className="form-subtitle">Create your account and start ordering.</p>
             <form>
-              <div
-                className="input-box animation"
-                style={{ "--li": 18, "--S": 1 }}
-              >
+              <div className="input-box">
                 <input
                   type="text"
                   required
+                  placeholder=" "
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
+                <FiUser className="input-icon" />
                 <label>Name</label>
-                <box-icon type="solid" name="user" color="gray"></box-icon>
               </div>
 
-              <div
-                className="input-box animation"
-                style={{ "--li": 19, "--S": 2 }}
-              >
+              <div className="input-box">
                 <input
                   type="email"
                   required
+                  placeholder=" "
                   value={remail}
                   onChange={(e) => rsetEmail(e.target.value)}
                 />
+                <FiMail className="input-icon" />
                 <label>Email</label>
-                <box-icon name="envelope" type="solid" color="gray"></box-icon>
               </div>
 
-              <div
-                className="input-box animation"
-                style={{ "--li": 19, "--S": 3 }}
-              >
+              <div className="input-box">
                 <input
                   type={show ? "text" : "password"}
                   required
+                  placeholder=" "
                   value={rpassword}
                   onChange={(e) => rsetPassword(e.target.value)}
                 />
+                <FiLock className="input-icon" />
                 <label>Password</label>
-                <span
+                <button
+                  type="button"
+                  className="password-toggle"
                   onClick={() => setShow(!show)}
-                  style={{
-                    position: "absolute",
-                    right: "2px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    cursor: "pointer",
-                    fontSize: "18px",
-                  }}
+                  tabIndex={-1}
                 >
                   {show ? <GoEyeClosed /> : <RxEyeOpen />}
-                </span>
-                <box-icon name="lock-alt" type="solid" color="gray"></box-icon>
-              </div>
-
-              <div
-                className="input-box animation"
-                style={{ "--li": 20, "--S": 4 }}
-              >
-                <button type="button" className="btn btn-warning px-5 ms-5 fw-bold" onClick={handleRegister}>
-                  Register
                 </button>
               </div>
 
-              <div
-                className="regi-link animation"
-                style={{ "--li": 21, "--S": 5 }}
-              >
+              <button type="button" className="login-btn" onClick={handleRegister}>
+                Register
+              </button>
+
+              <div className="toggle-link">
                 <p>
-                  already have account! <br />
+                  Already have an account?{" "}
                   <a
                     href="#"
-                    className="SignInLink"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsRegister(false);
@@ -264,12 +220,11 @@ const Login = () => {
             </form>
           </div>
 
+          {/* Register Info */}
           <div className="info-content Register">
-            <h2 className="animation fs-2 fw-bold" style={{ "--li": 17, "--S": 0 }}>
-              WELCOME TO Dharga Biryani!
-            </h2>
-            <p className="animation" style={{ "--li": 18, "--S": 1 }}>
-              We’re delighted to have you here. Taste the tradition, register now to savor authentic flavors.
+            <h2>WELCOME TO <span className="gold-text">DHARGA</span></h2>
+            <p>
+              We're delighted to have you here. Taste the tradition, register now to savor authentic flavors crafted with love.
             </p>
           </div>
         </div>

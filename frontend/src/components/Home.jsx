@@ -16,7 +16,10 @@ import pannerrice from "../assets/img/A plate of vegetarian biryani, bursting wi
 const Home = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 800,
+      once: true,
+      offset: 80,
+      disable: window.innerWidth < 576,
     });
   }, []);
 

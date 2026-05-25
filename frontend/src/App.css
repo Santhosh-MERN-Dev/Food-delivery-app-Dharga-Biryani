@@ -391,20 +391,21 @@
 
 /* Order Button */
 .order-btn {
-  padding: 0.3em 0.7em;
   border: none;
   border-radius: 30px;
-  font-weight: bold;
-  letter-spacing: 4px;
+  font-weight: 700;
+  letter-spacing: 3px;
   text-transform: uppercase;
   cursor: pointer;
   color: #000;
   transition: all 1000ms;
-  font-size: 16px;
   position: relative;
   overflow: hidden;
   outline: 2px solid grey;
   animation: pulse 2s infinite;
+  min-width: 160px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
 }
 
 .order-btn:hover {
@@ -433,8 +434,7 @@
 
 .waviy {
   position: relative;
-  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, .2));
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .waviy span {
@@ -444,7 +444,6 @@
   text-transform: uppercase;
   animation: waviy 1.5s infinite;
   animation-delay: calc(.1s * var(--i));
-
 }
 
 @keyframes waviy {
@@ -456,7 +455,7 @@
   }
 
   20% {
-    transform: translateY(-10px)
+    transform: translateY(-6px)
   }
 }
 
@@ -1163,14 +1162,6 @@
   line-height: 1.65;
 }
 
-.order-btn {
-  min-width: 220px;
-  width: fit-content;
-  padding: 0.95rem 1.75rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-}
-
 .cta-container {
   margin-top: 1.75rem;
 }
@@ -1198,11 +1189,17 @@
 
   .hero-title {
     font-size: clamp(2.2rem, 8vw, 3.4rem);
+    max-width: 100%;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
   }
 
   .order-btn {
-    width: 100%;
-    max-width: 280px;
+    max-width: 240px;
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
   }
 
   .cta-grid {
@@ -1211,7 +1208,7 @@
 
   .cta-item {
     width: 100%;
-    max-width: 280px;
+    max-width: 220px;
   }
 
   .hero-title-line {
@@ -1223,10 +1220,16 @@
   .hero-image {
     min-height: auto;
     padding: 2.5rem 0.85rem 1.5rem;
+    background-position: 65% center;
   }
 
   .hero-title {
     font-size: clamp(1.9rem, 10vw, 2.8rem);
+    max-width: 100%;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
   }
 
   .hero-tag {
@@ -2670,6 +2673,15 @@
   height: 200px;
   overflow: hidden;
   position: relative;
+}
+
+.dish-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .dish-image img {
@@ -5291,5 +5303,251 @@
   .ord-no-auth {
     margin: 30px 12px;
     padding: 30px 16px;
+  }
+}
+
+/* ========== ENHANCED MOBILE RESPONSIVENESS ========== */
+
+@media (max-width: 576px) {
+  .waviy {
+    font-size: 16px;
+  }
+
+  .order-btn {
+    min-width: 0;
+    max-width: 220px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
+  }
+
+  .home-container {
+    padding: 0 0.5rem;
+  }
+
+  .hero-title {
+    max-width: 100%;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
+  }
+
+  .dishes-grid {
+    gap: 16px;
+  }
+
+  .dish-card {
+    margin: 0;
+  }
+
+  .dish-image {
+    height: 180px;
+  }
+
+  .why-choose-us {
+    padding: 40px 12px;
+  }
+
+  .why-header {
+    margin-bottom: 32px;
+  }
+
+  .features-grid {
+    padding: 0;
+    gap: 16px;
+  }
+
+  .feature-card {
+    min-height: 220px;
+    padding: 24px 16px;
+  }
+
+  .feature-icon {
+    font-size: 2.4rem;
+  }
+
+  .special-dish-name {
+    font-size: 1.3rem;
+  }
+
+  .special-description {
+    font-size: 0.85rem;
+  }
+
+  .special-order-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .popular-dishes {
+    padding: 40px 12px;
+  }
+
+  .popular-header {
+    margin-bottom: 32px;
+  }
+
+  .popular-title {
+    font-size: 1.6rem;
+  }
+
+  .popular-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .dish-content {
+    padding: 16px;
+  }
+
+  .dish-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .dish-content p {
+    font-size: 0.85rem;
+  }
+
+  .dish-price {
+    font-size: 1.1rem;
+  }
+
+  .stats-section {
+    padding: 40px 12px;
+  }
+
+  .stats-grid {
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 16px 10px;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
+  }
+
+  .stat-icon-circle {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .stat-icon {
+    font-size: 1rem;
+  }
+
+  .promo-strip {
+    padding: 10px 0;
+  }
+
+  .promo-text {
+    font-size: 0.8rem;
+  }
+
+  .todays-special {
+    padding: 32px 12px 48px;
+  }
+
+  .special-badge {
+    font-size: 0.85rem;
+    padding: 6px 16px;
+  }
+
+  .special-card {
+    border-radius: 16px;
+  }
+
+  .special-image {
+    min-height: 200px;
+  }
+
+  .special-info {
+    padding: 20px 16px;
+  }
+
+  .special-pricing {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .special-price {
+    font-size: 1.4rem;
+  }
+
+  .dish-badge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .view-more-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-image {
+    padding: 2rem 0.6rem 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.6rem, 9vw, 2.2rem);
+  }
+
+  .waviy {
+    font-size: 14px;
+  }
+
+  .order-btn {
+    max-width: 180px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  .cta-item {
+    max-width: 100%;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .cta-icon {
+    font-size: 1rem;
+  }
+
+  .cta-value {
+    font-size: 0.8rem;
+  }
+
+  .dish-image {
+    height: 160px;
+  }
+
+  .feature-card {
+    min-height: 200px;
+    padding: 20px 14px;
+  }
+
+  .feature-title {
+    font-size: 1.1rem;
+  }
+
+  .stat-card {
+    padding: 12px 8px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  .special-dish-name {
+    font-size: 1.1rem;
   }
 }
