@@ -185,14 +185,14 @@ const Home = () => {
       </section>
 
       {/* Wavy Divider - Hero to Promo */}
-      <div className="wavy-divider wavy-hero-to-promo">
+      <div className="wavy-divider wavy-hero-to-promo" data-aos="fade" data-aos-delay="600">
         <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
           <path d="M0,40 C360,100 720,0 1080,60 C1260,80 1380,50 1440,40 L1440,100 L0,100 Z" fill="#1a1a1a" />
         </svg>
       </div>
 
       {/* Promo Offer Strip */}
-      <section className="promo-strip">
+      <section className="promo-strip" data-aos="fade-up">
         <div className="promo-track">
           <span className="promo-text">
             🔥 <strong>FLAT 20% OFF</strong> on your first order! Use code <strong>DHARGA20</strong> 🔥
@@ -216,14 +216,14 @@ const Home = () => {
               <span className="badge-pulse"></span>
               <span className="badge-text">🔥 TODAY'S SPECIAL</span>
             </div>
-            <div className="special-card">
-              <div className="special-image">
+              <div className="special-card">
+              <div className="special-image" data-aos="fade-right" data-aos-delay="200">
                 <img src={mutton} alt="Special Mutton Biryani" />
                 <div className="special-overlay">
                   <span className="limited-tag">⏳ Limited Time</span>
                 </div>
               </div>
-              <div className="special-info">
+              <div className="special-info" data-aos="fade-left" data-aos-delay="300">
                 <h3 className="special-dish-name">Mutton Biryani Special</h3>
                 <p className="special-description">
                   Slow-cooked succulent mutton, layered with fragrant basmati rice, 
@@ -246,7 +246,7 @@ const Home = () => {
       </section>
 
       {/* Wavy Divider - Special to Why Choose Us */}
-      <div className="wavy-divider wavy-special-to-why">
+      <div className="wavy-divider wavy-special-to-why" data-aos="fade">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
           <path d="M0,20 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#1a1a1a" />
         </svg>
@@ -304,7 +304,7 @@ const Home = () => {
       </section>
 
       {/* Wavy Divider - Stats to Popular Dishes */}
-      <div className="wavy-divider wavy-dark-to-light">
+      <div className="wavy-divider wavy-dark-to-light" data-aos="fade">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
           <path d="M0,60 C360,0 720,80 1080,20 C1260,0 1380,40 1440,60 L1440,80 L0,80 Z" fill="#fff8e1" />
         </svg>

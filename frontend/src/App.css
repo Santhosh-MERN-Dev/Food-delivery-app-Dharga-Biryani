@@ -435,6 +435,8 @@
 .waviy {
   position: relative;
   font-size: 20px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .waviy span {
@@ -5549,5 +5551,62 @@
 
   .special-dish-name {
     font-size: 1.1rem;
+  }
+}
+
+/* ========== MOBILE ALIGNMENT FIXES ========== */
+@media (max-width: 768px) {
+  .home-container {
+    text-align: center;
+  }
+
+  .hero-tag {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-title-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .waviy {
+    justify-content: center;
+  }
+
+  .hero-image .nav-link {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta-grid {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .scroll-indicator {
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .special-image {
+    min-height: 200px;
+  }
+
+  .special-card {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dishes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scroll-indicator {
+    bottom: 10px;
   }
 }
